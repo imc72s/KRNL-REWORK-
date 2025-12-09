@@ -168,10 +168,9 @@ local mainFrame = LMG2L["Frame_2"]
 local agreeBtn = LMG2L["TextButton_11"]
 local gradients = {
 	LMG2L["UIGradient_a"],
-	-- ลบ LMG2L["UIGradient_10"] ออกจากการหมุนตามที่ร้องขอ
 }
 
--- 1. ระบบหมุน Gradient (หมุนเฉพาะ Gradient หลัก)
+-- 1. ระบบหมุน Gradient
 task.spawn(function()
 	while true do
 		task.wait() 
@@ -183,14 +182,10 @@ task.spawn(function()
 	end
 end)
 
--- 2. ระบบกดปุ่ม (ดีดขึ้น > ย่อลงพร้อมถอยหลัง + จางหาย)
+-- 2. ระบบกดปุ่ม (ย่อลงพร้อมถอยหลัง + จางหาย ในจังหวะเดียว)
 agreeBtn.MouseButton1Click:Connect(function()
 	-- ⭐ ปรับความเร็ว Tween
-	local bounceDuration = .02 -- ช่วงดีดขึ้น
-	local closeDuration = 0.2 -- ช่วงย่อลง (เร็วขึ้นมาก)
-	
-	-- Tween Info สำหรับแต่ละขั้นตอน
-	local bounceInfo = TweenInfo.new(bounceDuration, Enum.EasingStyle.Sine, Enum.EasingDirection.Out)
+	local closeDuration = 0.2
 	local closeInfo = TweenInfo.new(closeDuration, Enum.EasingStyle.Back, Enum.EasingDirection.In) 
 	
 	-- 1. ปรับ AnchorPoint เป็นตรงกลาง (0.5, 0.5)
@@ -209,19 +204,13 @@ agreeBtn.MouseButton1Click:Connect(function()
 	mainFrame.Position = initialPos 
 	
 	-- 2. กำหนดตำแหน่งเป้าหมาย
-	local upPos = initialPos - UDim2.new(0, 0, 0.02, 0)   -- ตำแหน่งดีดขึ้น
-	local downPos = initialPos + UDim2.new(0, 0, 0.15, 0) -- ตำแหน่งย่อลง
+	-- ⭐ เพิ่มระยะเลื่อนลงเป็น 0.30
+	local downPos = initialPos + UDim2.new(0, 0, 0.30, 0) 
 	
-	-- ขั้นตอนที่ 1: เลื่อนขึ้นนิดหน่อย (Bounce Up)
-	local bounceTween = TweenService:Create(mainFrame, bounceInfo, {Position = upPos})
-	bounceTween:Play()
-	
-	-- รอให้ขั้นตอนที่ 1 เสร็จสิ้น
-	bounceTween.Completed:Wait() 
-	
-	-- ขั้นตอนที่ 2: ย่อขนาด เลื่อนลง และจางหาย (Shrink Down & Fade)
+	-- เริ่ม Tween: ย่อขนาด เลื่อนลง และจางหาย (Shrink Down & Fade)
 	local closeTween = TweenService:Create(mainFrame, closeInfo, {
-		Size = UDim2.new(0, 0, 0, 0),
+		-- ⭐ ย่อเหลือขนาด 5% (ย่อลงนิดหน่อย)
+		Size = UDim2.new(0.05, 0, 0.05, 0),
 		Position = downPos
 	})
 	
