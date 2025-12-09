@@ -186,7 +186,8 @@ end)
 agreeBtn.MouseButton1Click:Connect(function()
 	-- ⭐ ปรับความเร็ว Tween
 	local closeDuration = 0.2
-	local closeInfo = TweenInfo.new(closeDuration, Enum.EasingStyle.Back, Enum.EasingDirection.In) 
+	-- ⭐ เปลี่ยน EasingStyle เป็น Sine.In เพื่อการเคลื่อนไหวที่นุ่มนวล
+	local closeInfo = TweenInfo.new(closeDuration, Enum.EasingStyle.Sine, Enum.EasingDirection.In) 
 	
 	-- 1. ปรับ AnchorPoint เป็นตรงกลาง (0.5, 0.5)
 	local oldSize = mainFrame.Size
