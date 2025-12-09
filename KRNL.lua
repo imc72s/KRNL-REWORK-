@@ -14,7 +14,7 @@ local LMG2L = {};
 
 -- Players.4Q4II.PlayerGui.ScreenGui
 LMG2L["ScreenGui_1"] = Instance.new("ScreenGui", game.CoreGui)
-LMG2L["ScreenGui_1"]["ZIndexBehavior"] = 99999999999999;
+LMG2L["ScreenGui_1"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling;
 
 
 -- Players.4Q4II.PlayerGui.ScreenGui.Frame
