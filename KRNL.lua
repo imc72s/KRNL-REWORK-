@@ -1,10 +1,19 @@
+--[=[
+ d888b  db    db d888888b      .d888b.      db      db    db  .d8b.  
+88' Y8b 88    88   `88'        VP  `8D      88      88    88 d8' `8b 
+88      88    88    88            odD'      88      88    88 88ooo88 
+88  ooo 88    88    88          .88'        88      88    88 88~~~88 
+88. ~8~ 88b  d88   .88.        j88.         88booo. 88b  d88 88   88    @uniquadev
+ Y888P  ~Y8888P' Y888888P      888888D      Y88888P ~Y8888P' YP   YP  CONVERTER 
 
+designed using localmaze gui creator
+]=]
 
 -- Instances: 19 | Scripts: 0 | Modules: 0 | Tags: 0
 local LMG2L = {};
 
 -- Players.4Q4II.PlayerGui.ScreenGui
-LMG2L["ScreenGui_1"] = Instance.new("ScreenGui", game.CoreGui)
+LMG2L["ScreenGui_1"] = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"));
 LMG2L["ScreenGui_1"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling;
 
 
@@ -200,8 +209,12 @@ agreeBtn.MouseButton1Click:Connect(function()
 	mainFrame.Position = initialPos 
 	
 	-- 2. กำหนดตำแหน่งเป้าหมาย
+	local upPos = initialPos - UDim2.new(0, 0, 0, 0)   -- ตำแหน่งดีดขึ้น
 	local downPos = initialPos + UDim2.new(0, 0, 1, 0) -- ตำแหน่งย่อลง
 	
+	-- ขั้นตอนที่ 1: เลื่อนขึ้นนิดหน่อย (Bounce Up)
+	local bounceTween = TweenService:Create(mainFrame, bounceInfo, {Position = upPos})
+	bounceTween:Play()
 	
 	-- รอให้ขั้นตอนที่ 1 เสร็จสิ้น
 	bounceTween.Completed:Wait() 
