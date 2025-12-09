@@ -13,8 +13,8 @@ designed using localmaze gui creator
 local LMG2L = {};
 
 -- Players.4Q4II.PlayerGui.ScreenGui
-LMG2L["ScreenGui_1"] = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"));
-LMG2L["ScreenGui_1"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling;
+LMG2L["ScreenGui_1"] = Instance.new("ScreenGui", game:CoreGui)
+LMG2L["ScreenGui_1"]["ZIndexBehavior"] = 999999999999999;
 
 
 -- Players.4Q4II.PlayerGui.ScreenGui.Frame
