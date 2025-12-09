@@ -59,7 +59,7 @@ LMG2L["TextLabel3_7"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
 LMG2L["TextLabel3_7"]["TextColor3"] = Color3.fromRGB(250, 248, 240);
 LMG2L["TextLabel3_7"]["BackgroundTransparency"] = 1;
 LMG2L["TextLabel3_7"]["Size"] = UDim2.new(0.89119, 0, 0.15976, 0);
-LMG2L["TextLabel3_7"]["Text"] = [[we are sorry but krnl is fixing problems please wait next time.]];
+LMG2L["TextLabel3_7"]["Text"] = [[we are sorry plese try KRNL again next time.]];
 LMG2L["TextLabel3_7"]["Name"] = [[TextLabel3]];
 LMG2L["TextLabel3_7"]["Position"] = UDim2.new(0.05699, 0, 0.39053, 0);
 
