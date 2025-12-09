@@ -182,11 +182,11 @@ task.spawn(function()
 	end
 end)
 
--- 2. ระบบกดปุ่ม (ย่อลงพร้อมถอยหลัง + จางหาย ในจังหวะเดียว)
+-- 2. ระบบกดปุ่ม (เลื่อนลง + จางหาย ในจังหวะเดียว โดยคงขนาดเดิมไว้)
 agreeBtn.MouseButton1Click:Connect(function()
 	-- ⭐ ปรับความเร็ว Tween
 	local closeDuration = 0.2
-	-- ⭐ เปลี่ยน EasingStyle เป็น Sine.In เพื่อการเคลื่อนไหวที่นุ่มนวล
+	-- ใช้ Sine.In เพื่อการเคลื่อนไหวที่นุ่มนวล
 	local closeInfo = TweenInfo.new(closeDuration, Enum.EasingStyle.Sine, Enum.EasingDirection.In) 
 	
 	-- 1. ปรับ AnchorPoint เป็นตรงกลาง (0.5, 0.5)
@@ -205,13 +205,13 @@ agreeBtn.MouseButton1Click:Connect(function()
 	mainFrame.Position = initialPos 
 	
 	-- 2. กำหนดตำแหน่งเป้าหมาย
-	-- ⭐ เพิ่มระยะเลื่อนลงเป็น 0.30
+	-- คงค่าเลื่อนลง 0.30
 	local downPos = initialPos + UDim2.new(0, 0, 0.30, 0) 
 	
-	-- เริ่ม Tween: ย่อขนาด เลื่อนลง และจางหาย (Shrink Down & Fade)
+	-- เริ่ม Tween: เลื่อนลง และจางหาย (Move Down & Fade)
 	local closeTween = TweenService:Create(mainFrame, closeInfo, {
-		-- ⭐ ย่อเหลือขนาด 5% (ย่อลงนิดหน่อย)
-		Size = UDim2.new(0.05, 0, 0.05, 0),
+		-- ⭐ คงขนาดเดิมไว้
+		Size = oldSize, 
 		Position = downPos
 	})
 	
