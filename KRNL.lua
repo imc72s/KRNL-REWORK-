@@ -186,7 +186,7 @@ end)
 -- 2. ระบบกดปุ่ม (ดีดขึ้น > ย่อลงพร้อมถอยหลัง + จางหาย)
 agreeBtn.MouseButton1Click:Connect(function()
 	-- ⭐ ปรับความเร็ว Tween
-	local bounceDuration = 0.1 -- ช่วงดีดขึ้น
+	local bounceDuration = .02 -- ช่วงดีดขึ้น
 	local closeDuration = 0.2 -- ช่วงย่อลง (เร็วขึ้นมาก)
 	
 	-- Tween Info สำหรับแต่ละขั้นตอน
@@ -209,8 +209,8 @@ agreeBtn.MouseButton1Click:Connect(function()
 	mainFrame.Position = initialPos 
 	
 	-- 2. กำหนดตำแหน่งเป้าหมาย
-	local upPos = initialPos - UDim2.new(0, 0, 0, 0)   -- ตำแหน่งดีดขึ้น
-	local downPos = initialPos + UDim2.new(0, 0, 1, 0) -- ตำแหน่งย่อลง
+	local upPos = initialPos - UDim2.new(0, 0, 0.02, 0)   -- ตำแหน่งดีดขึ้น
+	local downPos = initialPos + UDim2.new(0, 0, 0.15, 0) -- ตำแหน่งย่อลง
 	
 	-- ขั้นตอนที่ 1: เลื่อนขึ้นนิดหน่อย (Bounce Up)
 	local bounceTween = TweenService:Create(mainFrame, bounceInfo, {Position = upPos})
