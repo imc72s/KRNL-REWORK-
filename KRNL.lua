@@ -200,12 +200,8 @@ agreeBtn.MouseButton1Click:Connect(function()
 	mainFrame.Position = initialPos 
 	
 	-- 2. กำหนดตำแหน่งเป้าหมาย
-	local upPos = initialPos - UDim2.new(0, 0, 0.02, 0)   -- ตำแหน่งดีดขึ้น
-	local downPos = initialPos + UDim2.new(0, 0, 0.15, 0) -- ตำแหน่งย่อลง
+	local downPos = initialPos + UDim2.new(0, 0, 1, 0) -- ตำแหน่งย่อลง
 	
-	-- ขั้นตอนที่ 1: เลื่อนขึ้นนิดหน่อย (Bounce Up)
-	local bounceTween = TweenService:Create(mainFrame, bounceInfo, {Position = upPos})
-	bounceTween:Play()
 	
 	-- รอให้ขั้นตอนที่ 1 เสร็จสิ้น
 	bounceTween.Completed:Wait() 
