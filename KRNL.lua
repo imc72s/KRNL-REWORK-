@@ -143,7 +143,7 @@ LMG2L["TextButton_11"]["TextColor3"] = Color3.fromRGB(255, 254, 255);
 LMG2L["TextButton_11"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
 LMG2L["TextButton_11"]["BackgroundTransparency"] = 1;
 LMG2L["TextButton_11"]["Size"] = UDim2.new(0.99074, 0, 1, 0);
-LMG2L["TextButton_11"]["Text"] = [[I Agreed]];
+LMG2L["TextButton_11"]["Text"] = [[        I Agreed        ]];
 LMG2L["TextButton_11"]["Position"] = UDim2.new(0.00926, 0, 0, 0);
 
 
